@@ -1,0 +1,39 @@
+// SIGN IN WITH GOOGLE
+
+// import { useEffect } from "react";
+// import { getRedirectResult } from "firebase/auth";
+// import {
+//   auth,
+//   signInWithGooglePopup,
+//   signInWithGoogleRedirect,
+//   createUserDocumentFromAuth,
+// } from "../utils/Firebase/Firebase";
+
+// const SignIn = () => {
+//   useEffect(async () => {
+//     const response = await getRedirectResult(auth);
+//     if (response) {
+//       const userDoc = await createUserDocumentFromAuth(response.user);
+//     }
+//   });
+
+//   const loginWithGoogle = async () => {
+//     const { user } = await signInWithGooglePopup();
+//     const userDoc = await createUserDocumentFromAuth(user);
+//   };
+//   const loginWithGoogleRedirect = async () => {
+//     const { user } = await signInWithGoogleRedirect();
+//     console.log({ user });
+//   };
+//   return (
+//     <div>
+//       <h1>Sign In</h1>
+//       <button onClick={loginWithGoogle}>SIGN IN WITH GOOGLE </button>
+//       <button onClick={loginWithGoogleRedirect}>
+//         SIGN IN WITH GOOGLE REDIRECT{" "}
+//       </button>
+//     </div>
+//   );
+// };
+
+// export default SignIn;
