@@ -7,10 +7,10 @@ import Button from "../Button-Component/ButtonComponent";
 import CartItem from "../Cart-Item/Cart-Item";
 
 const CartDropdown = () => {
-  const navigate = useNavigate();
   const { cartItems } = useContext(CartContext);
+  const navigate = useNavigate();
 
-  const goToCheckOutHandler = () => {
+  const goToCheckoutHandler = () => {
     navigate("/checkout");
   };
 
@@ -21,7 +21,7 @@ const CartDropdown = () => {
           <CartItem key={item.id} cartItem={item} />
         ))}
       </div>
-      <Button onClick={goToCheckOutHandler}>GO TO CHECKOUT</Button>
+      <Button onClick={goToCheckoutHandler}>GO TO CHECKOUT</Button>
     </div>
   );
 };
