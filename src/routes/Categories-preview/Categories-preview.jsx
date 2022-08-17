@@ -1,6 +1,6 @@
 import { useContext, Fragment } from "react";
 
-import CategoryPreview from "../../components/category-preview/CategoryPreview";
+import CategoryPreview from "../../components/Category-preview/CategoryPreview";
 
 import { CategoriesContext } from "../../Contexts/CategoriesContext";
 
