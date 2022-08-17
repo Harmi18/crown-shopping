@@ -22,7 +22,7 @@ const SignIn = () => {
   const { displayName, email, password, confirmPassword } = formFields;
 
   const val = useContext(UserContext);
-
+console.log(val)
   const handleChange = (event) => {
     const { name, value } = event.target;
     setFormField({ ...formFields, [name]: value });
