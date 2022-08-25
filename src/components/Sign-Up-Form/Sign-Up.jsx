@@ -1,7 +1,6 @@
 import { useState, useContext } from "react";
 import Button from "../Button-Component/ButtonComponent";
 
-import { UserContext } from "../../Contexts/userContexts";
 import FormInput from "../Form-Input/FormInput";
 
 import "./SignUp.style.scss";
@@ -21,8 +20,6 @@ const SignIn = () => {
   const [formFields, setFormField] = useState(defaultFormField);
   const { displayName, email, password, confirmPassword } = formFields;
 
-  const val = useContext(UserContext);
-console.log(val)
   const handleChange = (event) => {
     const { name, value } = event.target;
     setFormField({ ...formFields, [name]: value });

@@ -2,7 +2,6 @@ import { useState, useContext } from "react";
 import Button from "../Button-Component/ButtonComponent";
 
 import FormInput from "../Form-Input/FormInput";
-import { UserContext } from "../../Contexts/userContexts";
 
 import "./SignIn.style.scss";
 
@@ -19,8 +18,6 @@ const defaultFormField = {
 const SignIn = () => {
   const [formFields, setFormField] = useState(defaultFormField);
   const { email, password } = formFields;
-
-  const { setCurrentUser } = useContext(UserContext);
 
   const signInWithGoogle = async () => {
     const { user } = await signInWithGooglePopup();
@@ -40,25 +37,18 @@ const SignIn = () => {
     event.preventDefault();
 
     try {
-      const { user } = await signInAuthUserWithEmailAndPassword(
-        email,
-        password
-      );
-      setCurrentUser(user);
+      await signInAuthUserWithEmailAndPassword(email, password);
       resetFormFields();
     } catch (error) {
-      switch (error.code) {
-        case "auth/wrong password":
-          alert("wrong password");
-          break;
-        case "auth/user not found":
-          alert("no user associate with this email");
-          break;
-        default:
-          console.log(error);
-      }
+      console.log("user sign in failed", error);
     }
   };
+
+  // const handleChange = (event) => {
+  //   const { name, value } = event.target;
+
+  //   setFormFields({ ...formFields, [name]: value });
+  // };
 
   return (
     <div className="signup-container">
