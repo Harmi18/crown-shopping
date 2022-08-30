@@ -1,27 +1,23 @@
-import { useState, useContext } from "react";
+import { useState } from "react";
 import Button from "../Button-Component/ButtonComponent";
+import { useDispatch } from "react-redux";
 
 import FormInput from "../Form-Input/FormInput";
 
 import "./SignIn.style.scss";
-
-import {
-  signInWithGooglePopup,
-  createUserDocumentFromAuth,
-  signInAuthUserWithEmailAndPassword,
-} from "../../utils/Firebase/Firebase";
+import { googleSignIn, emailSignInStart } from "../../store/user/userActions";
 
 const defaultFormField = {
   email: "",
   password: "",
 };
 const SignIn = () => {
+  const dispatch = useDispatch();
   const [formFields, setFormField] = useState(defaultFormField);
   const { email, password } = formFields;
 
   const signInWithGoogle = async () => {
-    const { user } = await signInWithGooglePopup();
-    await createUserDocumentFromAuth(user);
+    dispatch(googleSignIn());
   };
 
   const handleChange = (event) => {
@@ -37,18 +33,12 @@ const SignIn = () => {
     event.preventDefault();
 
     try {
-      await signInAuthUserWithEmailAndPassword(email, password);
+      dispatch(emailSignInStart(email, password));
       resetFormFields();
     } catch (error) {
       console.log("user sign in failed", error);
     }
   };
-
-  // const handleChange = (event) => {
-  //   const { name, value } = event.target;
-
-  //   setFormFields({ ...formFields, [name]: value });
-  // };
 
   return (
     <div className="signup-container">

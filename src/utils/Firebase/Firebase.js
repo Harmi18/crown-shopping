@@ -111,7 +111,7 @@ export const getCategoriesAndDocuments = async () => {
   return querySnapshot.docs.map((docSnapshot) => docSnapshot.data());
 };
 
-export const signOutuser = async () => await signOut(auth);
+export const signOutUser = async () => await signOut(auth);
 
 export const onAuthStateChangedListener = (callback) =>
   onAuthStateChanged(auth, callback);
@@ -122,9 +122,9 @@ export const getCurrentUser = () => {
       auth,
       (userAuth) => {
         unsubscribe();
-        resolve();
+        resolve(userAuth);
       },
-      reject()
+      reject
     );
   });
 };
