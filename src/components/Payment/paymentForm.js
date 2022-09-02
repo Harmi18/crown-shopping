@@ -26,6 +26,8 @@ const PaymentForm = () => {
       method: "post",
       headers: {
         "Content-Type": "application/json",
+        "Access-Control-Allow-Credentials": true,
+        "Access-Control-Allow-Origin": "*",
       },
       body: JSON.stringify({ amount: amount * 100 }),
     }).then((res) => res.json());
