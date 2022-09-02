@@ -10,8 +10,11 @@ import Shop from "./routes/shop/Shop-Component";
 import Checkout from "./routes/CheckOut/Checkout";
 import { checkUserSession } from "./store/user/userActions";
 
+/* eslint-disable */
+
 const App = () => {
   const dispatch = useDispatch();
+
   useEffect(() => {
     dispatch(checkUserSession());
   }, []);

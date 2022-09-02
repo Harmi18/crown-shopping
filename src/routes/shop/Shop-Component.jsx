@@ -7,11 +7,14 @@ import { useDispatch } from "react-redux";
 
 import { fetchCategoryStart } from "../../store/categories/categoryActions";
 
+/* eslint-disable */
 const Shop = () => {
   const dispatch = useDispatch();
+
   useEffect(() => {
     dispatch(fetchCategoryStart());
   }, []);
+
   return (
     <Routes>
       <Route index element={<CategoriesPreview />} />
