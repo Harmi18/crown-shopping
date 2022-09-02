@@ -6,11 +6,6 @@ import FormInput from "../Form-Input/FormInput";
 import "./SignUp.style.scss";
 import { signUpStart } from "../../store/user/userActions";
 
-import {
-  createAuthUserWithEmailAndPassword,
-  createUserDocumentFromAuth,
-} from "../../utils/Firebase/Firebase";
-
 const defaultFormField = {
   displayName: "",
   email: "",
